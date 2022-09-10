@@ -42,7 +42,7 @@ jobs:
            pwd
            cd SN
            echo environment loaded!
-           python3 Sagiri_Notifs
+           python3 -m Sagiri_Notifs
 #       - name: Loop workflow
 #         continue-on-error: true
 #         run: |
