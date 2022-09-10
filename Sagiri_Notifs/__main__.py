@@ -182,7 +182,6 @@ async def send_update():
           #await bot.send_message(-1001562997064, txt)
       #store = f'**•{results[0][1]}\n{results[0][2]}**'
       #print(store)
-      await asyncio.sleep(180)
  
 loop.run_until_complete(send_update())
 
