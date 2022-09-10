@@ -1,0 +1,9 @@
+telethon
+telegraph
+img2pdf
+requests
+bs4
+redis
+Pillow
+python-dotenv
+html_telegraph_poster

@@ -1,0 +1,53 @@
+name: Hourly Looper
+
+on:
+    schedule:
+      - cron: "0 * * * *"
+    push:
+      branches: [ main ]
+    workflow_dispatch:
+
+env:
+  API_HASH: 594d354b4273a2ce3403a44ea3a1f1f6
+  API_ID: 1950337
+  BOT_TOKEN: 5239553233:AAHeI2pi_dwAwCD4XVsHYkdp8_OuCCjys1c
+  REDIS_ENDPOINT: redis-18870.c278.us-east-1-4.ec2.cloud.redislabs.com:18870
+  REDIS_PASS: AlQ92klgJi8vmI62gw3eivvF3cGfXG1m
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - uses: actions/checkout@v2
+       - uses: styfle/cancel-workflow-action@0.9.0
+         name: "Cancel duplicate workflow runs"
+         with:
+            all_but_latest: true
+            access_token: ${{ github.token }}
+       - name: Set up Python 3.9
+         uses: actions/setup-python@v2.2.2
+         with:
+           python-version: 3.9          
+       - name: Building
+         continue-on-error: true
+         run: |
+           sudo apt -qq update && sudo apt -qq install -y --no-install-recommends
+           git clone git@github.com:Zackbloodshot/SN.git sagiri-notifs && cd sagiri-notifs && pip3 install -r requirements.txt
+       - name: Looping
+         timeout-minutes: 350
+         continue-on-error: true
+         run: |
+           pwd
+           cd sagiri-notifs
+           echo environment loaded!
+           python3 Sagiri_Notifs
+#       - name: Loop workflow
+#         continue-on-error: true
+#         run: |
+#           git clone https://github.com/${GITHUB_REPOSITORY} loop
+#           cd loop || exit 1
+#           echo $(date -u +%T%P) >> loop.txt
+#           git add loop.txt
+#           git commit -m "Workflow : Loop $(date -u +%D-%T%P)"
+#           git push -q https://${{ secrets.TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
