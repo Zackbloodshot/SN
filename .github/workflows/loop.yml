@@ -9,11 +9,11 @@ on:
     workflow_dispatch:
 
 env:
-  API_HASH: 594d354b4273a2ce3403a44ea3a1f1f6
-  API_ID: 1950337
-  BOT_TOKEN: 5239553233:AAHeI2pi_dwAwCD4XVsHYkdp8_OuCCjys1c
-  REDIS_ENDPOINT: redis-18870.c278.us-east-1-4.ec2.cloud.redislabs.com:18870
-  REDIS_PASS: AlQ92klgJi8vmI62gw3eivvF3cGfXG1m
+  API_HASH: {{ secrets.API_HASH }}
+  API_ID: {{  secrets.API_ID }}
+  BOT_TOKEN: {{ secrets.BOT_TOKEN }}
+  REDIS_ENDPOINT: {{ secrets.REDIS_ENDPOINT }}
+  REDIS_PASS: {{ secrets.REDIS_PASS }}
     
 jobs:
   build:
