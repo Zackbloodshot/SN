@@ -33,7 +33,7 @@ jobs:
          continue-on-error: true
          run: |
            sudo apt -qq update && sudo apt -qq install -y --no-install-recommends
-           git clone git@github.com:Zackbloodshot/SN.git sagiri-notifs && cd sagiri-notifs && pip3 install -r requirements.txt
+           git clone git@github.com:Zackbloodshot/SN.git && cd SN && pip3 install -r requirements.txt
        - name: Looping
          timeout-minutes: 350
          continue-on-error: true
