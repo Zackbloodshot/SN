@@ -9,11 +9,11 @@ on:
     workflow_dispatch:
 
 env:
-  API_HASH: {{ secrets.API_HASH }}
-  API_ID: {{  secrets.API_ID }}
-  BOT_TOKEN: {{ secrets.BOT_TOKEN }}
-  REDIS_ENDPOINT: {{ secrets.REDIS_ENDPOINT }}
-  REDIS_PASS: {{ secrets.REDIS_PASS }}
+  API_HASH: ${{ secrets.API_HASH }}
+  API_ID: ${{  secrets.API_ID }}
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  REDIS_ENDPOINT: ${{ secrets.REDIS_ENDPOINT }}
+  REDIS_PASS: ${{ secrets.REDIS_PASS }}
     
 jobs:
   build:
