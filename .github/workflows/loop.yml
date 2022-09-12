@@ -2,11 +2,6 @@ name: Hourly Looper
 
 
 on:
-    schedule:
-      - cron: "0 * * * *"
-    push:
-      branches: [ main ]
-    workflow_dispatch:
 
 env:
   API_HASH: ${{ secrets.API_HASH }}
